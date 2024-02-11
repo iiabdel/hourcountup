@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countup Timer</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #68227d;
+    }
+    .container {
+        text-align: center;
+        display: flex;
+    }
+    img{
+        width: 150px;
+        border-radius: 20px;
+
+    }
+    @media only screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+    }
+    .coountdown{
+        padding-left: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <div class="img">
+        <img src="5c90fca1-93aa-466f-bcf0-2519bfc4581d.jpg" alt="">
+    </div>
+
+    <div class="coountdown">
+        <h2>hey houry :), we have been together for...</h2>
+        <h1 id="timer"></h1>
+    </div>
+ 
+</div>
+
+<script>
+    function updateTimer() {
+        var startDate = new Date('2023-04-27T06:00:00');
+        var currentDate = new Date();
+        var timeDifference = currentDate - startDate;
+        
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        
+        document.getElementById('timer').textContent = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer(); // To display the timer immediately upon loading the page
+</script>
+</body>
+</html>
+
+</html>
